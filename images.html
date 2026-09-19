@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Slöll Faction</title>
+  
+ <style>
+
+    /* Style for the menu */
+    .menu {
+      margin: 20px 0;
+    }
+
+    .menu label {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #A08259;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    /* Hide the radio buttons */
+    .menu input {
+      display: none;
+    }
+
+    /* Style for gallery containers */
+    .gallery-container {
+      margin-top: 20px;
+    }
+
+    .gallery {
+      display: none; /* Hide all galleries by default */
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      max-width: 150px;
+      height: auto;
+      margin: 10px;
+      border: 2px solid #A08259;
+      border-radius: 5px;
+      cursor: pointer; /* Make images clickable */
+    }
+
+    /* Style for the selected label when the corresponding radio button is checked */
+    input[type="radio"]:checked + label {
+      color: #FFD700; /* Change text color to gold when active */
+      background-color: #e65c00; /* Slightly darker background for active state */
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none; /* Hide the lightbox by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .lightbox .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .lightbox .prev {
+      left: 10px;
+    }
+
+    .lightbox .next {
+      right: 10px;
+    }
+
+    /* Close button */
+    .lightbox .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Image Gallery</h1>
+
+    <!-- Menu -->
+    <div class="menu">
+      <input type="radio" id="menu1" name="menu">
+      <label for="menu1">Gallery 1</label>
+
+      <input type="radio" id="menu2" name="menu">
+      <label for="menu2">Gallery 2</label>
+
+      <input type="radio" id="menu3" name="menu">
+      <label for="menu3">Gallery 3</label>
+    </div>
+
+    <!-- Galleries -->
+    <div class="gallery-container">
+      <div id="gallery1" class="gallery">
+        <img src="images/Plate_Test2.jpg" alt="Picture 1">
+      </div>
+
+      <div id="gallery2" class="gallery">
+        <img src="images/BirthdayMath/ImageEasterEgg.jpg" alt="Picture 3">
+      </div>
+
+      <div id="gallery3" class="gallery">
+        <img src="images/buckriders/GTT automotive logo.jpg" alt="Picture 5">
+        <img src="images/buckriders/van_regions_van_small.jpg" alt="Picture 6">
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="closeLightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="Large Image">
+    <button class="nav-button prev" id="prevButton">&#10094;</button>
+    <button class="nav-button next" id="nextButton">&#10095;</button>
+  </div>
+
+  <script>
+    let galleryImages = [];
+    let currentImageIndex = -1;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    // Function to open the lightbox with a specific image
+    function openLightbox(index) {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = galleryImages[index].src;
+      currentImageIndex = index;
+    }
+
+    // Function to close the lightbox
+    function closeLightboxFunc() {
+      lightbox.style.display = 'none';
+    }
+
+    // Show the next image in the current gallery
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentImageIndex].src;
+    }
+
+    // Show the previous image in the current gallery
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentImageIndex].src;
+    }
+
+    // Add event listeners to gallery images to open lightbox
+    function setupGalleryImages() {
+      galleryImages = [];
+      const selectedGallery = document.querySelector('input[name="menu"]:checked');
+      const galleryId = selectedGallery ? selectedGallery.id.replace('menu', 'gallery') : 'gallery1'; // Default to Gallery 1 if no selection
+      const galleryImagesNodeList = document.querySelector(`#${galleryId}`).querySelectorAll('img');
+      galleryImagesNodeList.forEach((image, index) => {
+        galleryImages.push(image);
+        image.addEventListener('click', () => openLightbox(index));
+      });
+    }
+
+    // Add event listeners to navigation buttons
+    nextButton.addEventListener('click', showNextImage);
+    prevButton.addEventListener('click', showPrevImage);
+
+    // Close the lightbox when clicking the close button
+    closeLightbox.addEventListener('click', closeLightboxFunc);
+
+    // Close the lightbox if clicked outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightboxFunc();
+      }
+    });
+
+    // Function to show the selected gallery
+    function showGallery() {
+      // Hide all galleries
+      const galleries = document.querySelectorAll('.gallery');
+      galleries.forEach(gallery => {
+        gallery.style.display = 'none';
+      });
+
+      // Get the ID of the selected gallery based on the radio button checked
+      const selectedRadio = document.querySelector('input[name="menu"]:checked');
+      if (selectedRadio) {
+        const galleryId = selectedRadio.id.replace('menu', 'gallery'); // Change menu1 -> gallery1
+        const selectedGallery = document.getElementById(galleryId);
+        if (selectedGallery) {
+          selectedGallery.style.display = 'block';
+        }
+      }
+
+      // Update gallery images based on selected gallery
+      setupGalleryImages();
+    }
+
+    // Add event listeners to all radio buttons
+    const radioButtons = document.querySelectorAll('input[name="menu"]');
+    radioButtons.forEach(button => {
+      button.addEventListener('change', showGallery);
+    });
+
+    // Initially show the gallery if a radio button is pre-selected
+    document.addEventListener('DOMContentLoaded', () => {
+      showGallery(); // Show the initially selected gallery
+    });
+  </script>
+</body>
+</html>

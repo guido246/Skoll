@@ -1,0 +1,131 @@
+/* Reset styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  #333333;
+  color: orange; /* Orange text */
+  align-items: flex-start; /* Keep content at the top, not centered */
+}
+
+/* Ensure the page is always a square */
+.square {
+  position: relative;
+  width: 100vmin; /* Use the smaller of the viewport's width or height */
+  height: 100vmin; /* Matches the width to make it a perfect square */
+  background-color: black;
+  color: orange; /* Orange text */
+  display: block;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  position: relative;
+  width: 80%;
+  min-height: 100vh; /* Ensure it is at least the height of the viewport */
+  align-items: center; /* Center horizontally */
+  overflow-y: auto; /* Enable vertical scrolling inside container */
+  padding-top: 20px; /* Optional: add some padding to the top if needed */
+  box-sizing: border-box; /* Ensure padding doesn't affect width/height calculations */
+}
+
+/* Centered Logo */
+.logo {
+  width: 100%; /* Ensure the logo container spans the entire square */
+  height: 100%; /* Match the height as well */
+  display: flex;
+  justify-content: center; /* Horizontally center the logo */
+  align-items: center; /* Vertically center the logo */
+  overflow: hidden; /* Prevent any overflow outside the container */
+}
+
+.logo img {
+  width: auto; /* Maintain the aspect ratio */
+  height: 100%; /* Increase the size as needed */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+/* Corner Links Styling */
+.corner-link {
+  position: absolute;
+  text-decoration: none;
+  color: #A88858;
+  font-size: 2.2rem;
+  padding: 10px;
+  background-color: black;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.corner-link:hover {
+  background-color: #ddd;
+}
+
+/* Positioning Links */
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.box {
+  width: 95%;
+  padding: 0px;
+  padding-bottom: 20px; /* Add padding inside the div */
+  margin: 10px;
+  margin-bottom: 20px; /* Add margin outside the div */
+  background-color: black;
+  color: #A88858;
+  border: 1px solid #ccc;      
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Remove space between borders */
+}
+
+th, td {
+  border: 1px solid #000; /* Add borders around each cell */
+  border-color: #333;
+  padding: 0; /* Remove padding inside the cells */
+  text-align: left; /* Center align text */
+  height: 25px;
+  padding-left: 12px; /* Add extra space on the left */
+}
+
+th {
+  border: 1px solid #000; /* Add borders around each cell */
+  border-color: #A08259;
+  background-color: #333;
+}
+
+a {
+  color: #A88858; /* Set link text color to orange */
+  
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline when hovering */
+}
