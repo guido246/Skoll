@@ -131,7 +131,7 @@ a:hover {
 }
 
 
-/* responsive */
+
 /* ==============================
    Smartphone / small screens
    ============================== */
@@ -152,7 +152,7 @@ a:hover {
 
   .logo {
     width: 100%;
-    height: 100%;
+    height: 85%;
   }
 
   .logo img {
