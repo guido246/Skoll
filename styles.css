@@ -156,14 +156,15 @@ a:hover {
     overflow: hidden;
   }
 
-  .logo {
-    width: 100%;
-    height: calc(100% - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+ .logo {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: translateY(35px);
+}
 
   .logo img {
     width: 92%;
