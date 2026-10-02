@@ -65,6 +65,7 @@ body, html {
   transition: background-color 0.3s;
 }
 
+/* Hover effect */
 .corner-link:hover {
   background-color: #ddd;
 }
@@ -259,14 +260,46 @@ a:hover {
 
 
 /* ==============================
+   Images page
+   ============================== */
+
+/*
+   Override the general body/container rules.
+   The gallery page originally did not use styles.css,
+   so these rules keep its original layout.
+*/
+
+body.images-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+}
+
+body.images-page .container {
+  display: block;
+  position: relative;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+
+/* ==============================
    Image Gallery
    ============================== */
 
-.menu {
+.images-page .menu {
   margin: 20px 0;
 }
 
-.menu label {
+.images-page .menu label {
   margin: 0 10px;
   padding: 10px 20px;
   background-color: #FF5000;
@@ -278,21 +311,21 @@ a:hover {
 }
 
 /* Hide the radio buttons */
-.menu input {
+.images-page .menu input {
   display: none;
 }
 
 /* Style for gallery containers */
-.gallery-container {
+.images-page .gallery-container {
   margin-top: 20px;
 }
 
-.gallery {
+.images-page .gallery {
   display: none;
   margin-top: 20px;
 }
 
-.gallery img {
+.images-page .gallery img {
   max-width: 150px;
   height: auto;
   margin: 10px;
@@ -302,7 +335,7 @@ a:hover {
 }
 
 /* Selected menu item */
-input[type="radio"]:checked + label {
+.images-page input[type="radio"]:checked + label {
   color: #FFD700;
   background-color: #e65c00;
 }
@@ -312,7 +345,7 @@ input[type="radio"]:checked + label {
    Lightbox
    ============================== */
 
-.lightbox {
+.images-page .lightbox {
   display: none;
   position: fixed;
   top: 0;
@@ -325,12 +358,12 @@ input[type="radio"]:checked + label {
   align-items: center;
 }
 
-.lightbox img {
+.images-page .lightbox img {
   max-width: 90%;
   max-height: 80%;
 }
 
-.lightbox .nav-button {
+.images-page .lightbox .nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -342,20 +375,56 @@ input[type="radio"]:checked + label {
   border: none;
 }
 
-.lightbox .prev {
+.images-page .lightbox .prev {
   left: 10px;
 }
 
-.lightbox .next {
+.images-page .lightbox .next {
   right: 10px;
 }
 
-/* Close button */
-.lightbox .close {
+.images-page .lightbox .close {
   position: absolute;
   top: 10px;
   right: 10px;
   color: white;
   font-size: 30px;
   cursor: pointer;
+}
+
+
+/* ==============================
+   Images page on smartphones
+   ============================== */
+
+/*
+   Override the general mobile rules.
+   No scaling is added here: the original
+   gallery dimensions are retained.
+*/
+
+@media (max-width: 600px) {
+
+  html:has(body.images-page) {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  body.images-page {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  body.images-page .container {
+    display: block;
+    width: auto;
+    min-height: 0;
+    padding: 10px;
+    margin: 0;
+    overflow: visible;
+  }
 }
