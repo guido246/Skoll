@@ -3,121 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="styles.css">
   <title>Image Gallery</title>
-  
- <style>
-
-    /* Style for the menu */
-    .menu {
-      margin: 20px 0;
-    }
-
-    .menu label {
-      margin: 0 10px;
-      padding: 10px 20px;
-      background-color: #FF5000; /* Harley-Davidson Orange */
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    /* Hide the radio buttons */
-    .menu input {
-      display: none;
-    }
-
-    /* Style for gallery containers */
-    .gallery-container {
-      margin-top: 20px;
-    }
-
-    .gallery {
-      display: none; /* Hide all galleries by default */
-      margin-top: 20px;
-    }
-
-    .gallery img {
-      max-width: 150px;
-      height: auto;
-      margin: 10px;
-      border: 2px solid #FF5000;
-      border-radius: 5px;
-      cursor: pointer; /* Make images clickable */
-    }
-
-    /* Style for the selected label when the corresponding radio button is checked */
-    input[type="radio"]:checked + label {
-      color: #FFD700; /* Change text color to gold when active */
-      background-color: #e65c00; /* Slightly darker background for active state */
-    }
-
-    /* Lightbox styles */
-    .lightbox {
-      display: none; /* Hide the lightbox by default */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-    }
-
-    .lightbox .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 30px;
-      color: white;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      cursor: pointer;
-      border: none;
-    }
-
-    .lightbox .prev {
-      left: 10px;
-    }
-
-    .lightbox .next {
-      right: 10px;
-    }
-
-    /* Close button */
-    .lightbox .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
-  </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Image Gallery</h1>
+
     <div class="menu">
         <input type="radio" id="menu1" name="menu">
         <label for="menu1">JapanseTuin2026</label>
+
         <input type="radio" id="menu2" name="menu">
         <label for="menu2">MijnenRoute2026</label>
+
         <input type="radio" id="menu3" name="menu">
         <label for="menu3">MVKGriezel2026</label>
+
         <input type="radio" id="menu4" name="menu">
         <label for="menu4">Roadhouse2026</label>
     </div>
+
     <div class="gallery-container">
+
         <div id="gallery1" class="gallery">
             <img src="Images/JapanseTuin2026/810351298_4636271273262841_7022918482617592421_n.jpg" alt="Picture 1">
             <img src="Images/JapanseTuin2026/825271299_4650716928484942_4106923008567281875_n.jpg" alt="Picture 1">
@@ -149,12 +58,10 @@
             <img src="Images/JapanseTuin2026/827281860_4650716645151637_8221724339525238235_n.jpg" alt="Picture 1">
             <img src="Images/JapanseTuin2026/827423495_4650717408484894_6258014804069739032_n.jpg" alt="Picture 1">
             <img src="Images/JapanseTuin2026/827856300_4650717478484887_8305245890556584139_n.jpg" alt="Picture 1">
-
         </div>
 
         <div id="gallery2" class="gallery">
             <img src="Images/MijnenRoute2026/814728933_4639660692923899_7283271853502882731_n.jpg" alt="Picture 1">
-
         </div>
 
         <div id="gallery3" class="gallery">
@@ -205,7 +112,6 @@
             <img src="Images/MVKGriezel2026/808080874_4634629930093642_7334170522680241879_n.jpg" alt="Picture 1">
             <img src="Images/MVKGriezel2026/808137067_4634629760093659_8722060628833810297_n.jpg" alt="Picture 1">
             <img src="Images/MVKGriezel2026/808156674_4634142760142359_3341430950773430446_n.jpg" alt="Picture 1">
-
         </div>
 
         <div id="gallery4" class="gallery">
@@ -225,10 +131,11 @@
             <img src="Images/Roadhouse2026/784005630_4611377145752254_6554959438043230617_n.jpg" alt="Picture 1">
             <img src="Images/Roadhouse2026/784197640_4611377379085564_4926998282138358717_n.jpg" alt="Picture 1">
             <img src="Images/Roadhouse2026/784252264_4611377745752194_6141482863576154103_n.jpg" alt="Picture 1">
-
         </div>
+
     </div>
   </div>
+
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <span class="close" id="closeLightbox">&times;</span>
@@ -274,9 +181,15 @@
     // Add event listeners to gallery images to open lightbox
     function setupGalleryImages() {
       galleryImages = [];
+
       const selectedGallery = document.querySelector('input[name="menu"]:checked');
-      const galleryId = selectedGallery ? selectedGallery.id.replace('menu', 'gallery') : 'gallery1'; // Default to Gallery 1 if no selection
-      const galleryImagesNodeList = document.querySelector(`#${galleryId}`).querySelectorAll('img');
+      const galleryId = selectedGallery
+        ? selectedGallery.id.replace('menu', 'gallery')
+        : 'gallery1';
+
+      const galleryImagesNodeList =
+        document.querySelector(`#${galleryId}`).querySelectorAll('img');
+
       galleryImagesNodeList.forEach((image, index) => {
         galleryImages.push(image);
         image.addEventListener('click', () => openLightbox(index));
@@ -301,15 +214,22 @@
     function showGallery() {
       // Hide all galleries
       const galleries = document.querySelectorAll('.gallery');
+
       galleries.forEach(gallery => {
         gallery.style.display = 'none';
       });
 
       // Get the ID of the selected gallery based on the radio button checked
-      const selectedRadio = document.querySelector('input[name="menu"]:checked');
+      const selectedRadio =
+        document.querySelector('input[name="menu"]:checked');
+
       if (selectedRadio) {
-        const galleryId = selectedRadio.id.replace('menu', 'gallery'); // Change menu1 -> gallery1
-        const selectedGallery = document.getElementById(galleryId);
+        const galleryId =
+          selectedRadio.id.replace('menu', 'gallery');
+
+        const selectedGallery =
+          document.getElementById(galleryId);
+
         if (selectedGallery) {
           selectedGallery.style.display = 'block';
         }
@@ -320,14 +240,16 @@
     }
 
     // Add event listeners to all radio buttons
-    const radioButtons = document.querySelectorAll('input[name="menu"]');
+    const radioButtons =
+      document.querySelectorAll('input[name="menu"]');
+
     radioButtons.forEach(button => {
       button.addEventListener('change', showGallery);
     });
 
     // Initially show the gallery if a radio button is pre-selected
     document.addEventListener('DOMContentLoaded', () => {
-      showGallery(); // Show the initially selected gallery
+      showGallery();
     });
   </script>
 </body>
