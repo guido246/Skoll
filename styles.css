@@ -65,7 +65,6 @@ body, html {
   transition: background-color 0.3s;
 }
 
-/* Hover effect */
 .corner-link:hover {
   background-color: #ddd;
 }
@@ -131,12 +130,11 @@ a:hover {
 }
 
 
-/* ==============================
-   Smartphone / small screens
-   ============================== */
+/* =========================================================
+   SMARTPHONE / SMALL SCREENS
+   ========================================================= */
 
 @media (max-width: 600px) {
-
   html,
   body {
     width: 100%;
@@ -198,9 +196,9 @@ a:hover {
 }
 
 
-/* ==============================
-   Members page
-   ============================== */
+/* =========================================================
+   MEMBERS PAGE
+   ========================================================= */
 
 .members-page {
   display: block;
@@ -225,12 +223,9 @@ a:hover {
 }
 
 
-/* ==============================
-   Members page on smartphones
-   ============================== */
+/* Members page on smartphones */
 
 @media (max-width: 600px) {
-
   html:has(body.members-page) {
     height: auto;
     min-height: 100%;
@@ -259,47 +254,44 @@ a:hover {
 }
 
 
-/* ==============================
-   Images page
-   ============================== */
-
-/*
-   Override the general body/container rules.
-   The gallery page originally did not use styles.css,
-   so these rules keep its original layout.
-*/
+/* =========================================================
+   IMAGE GALLERY
+   ========================================================= */
 
 body.images-page {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
   min-height: 100%;
   margin: 0;
   padding: 0;
   background-color: #333333;
+  color: orange;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-body.images-page .container {
+body.images-page .gallery-container-page {
   display: block;
   position: relative;
   width: auto;
-  min-height: 0;
+  min-height: 100vh;
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
   overflow: visible;
 }
 
+body.images-page h1 {
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
 
-/* ==============================
-   Image Gallery
-   ============================== */
-
-.images-page .menu {
+body.images-page .menu {
   margin: 20px 0;
 }
 
-.images-page .menu label {
+body.images-page .menu label {
   margin: 0 10px;
   padding: 10px 20px;
   background-color: #FF5000;
@@ -310,42 +302,41 @@ body.images-page .container {
   display: inline-block;
 }
 
-/* Hide the radio buttons */
-.images-page .menu input {
+body.images-page .menu input {
   display: none;
 }
 
-/* Style for gallery containers */
-.images-page .gallery-container {
+body.images-page .gallery-container {
   margin-top: 20px;
 }
 
-.images-page .gallery {
+body.images-page .gallery {
   display: none;
   margin-top: 20px;
 }
 
-.images-page .gallery img {
+body.images-page .gallery img {
+  width: auto;
   max-width: 150px;
   height: auto;
   margin: 10px;
   border: 2px solid #FF5000;
   border-radius: 5px;
   cursor: pointer;
+  box-sizing: content-box;
 }
 
-/* Selected menu item */
-.images-page input[type="radio"]:checked + label {
+body.images-page input[type="radio"]:checked + label {
   color: #FFD700;
   background-color: #e65c00;
 }
 
 
-/* ==============================
-   Lightbox
-   ============================== */
+/* =========================================================
+   IMAGE GALLERY - LIGHTBOX
+   ========================================================= */
 
-.images-page .lightbox {
+body.images-page .lightbox {
   display: none;
   position: fixed;
   top: 0;
@@ -358,12 +349,14 @@ body.images-page .container {
   align-items: center;
 }
 
-.images-page .lightbox img {
+body.images-page .lightbox img {
   max-width: 90%;
   max-height: 80%;
+  width: auto;
+  height: auto;
 }
 
-.images-page .lightbox .nav-button {
+body.images-page .lightbox .nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -375,15 +368,15 @@ body.images-page .container {
   border: none;
 }
 
-.images-page .lightbox .prev {
+body.images-page .lightbox .prev {
   left: 10px;
 }
 
-.images-page .lightbox .next {
+body.images-page .lightbox .next {
   right: 10px;
 }
 
-.images-page .lightbox .close {
+body.images-page .lightbox .close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -393,19 +386,14 @@ body.images-page .container {
 }
 
 
-/* ==============================
-   Images page on smartphones
-   ============================== */
-
-/*
-   Override the general mobile rules.
-   No scaling is added here: the original
-   gallery dimensions are retained.
-*/
+/* =========================================================
+   IMAGE GALLERY - MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
   html:has(body.images-page) {
+    width: 100%;
     height: auto;
     min-height: 100%;
     overflow-y: auto;
@@ -413,18 +401,55 @@ body.images-page .container {
   }
 
   body.images-page {
+    width: 100%;
     height: auto;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: #333333;
   }
 
-  body.images-page .container {
-    display: block;
-    width: auto;
-    min-height: 0;
-    padding: 10px;
+  body.images-page .gallery-container-page {
+    width: 100%;
+    min-height: 100%;
     margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
     overflow: visible;
+  }
+
+  body.images-page .menu {
+    margin: 20px 0;
+  }
+
+  body.images-page .menu label {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  body.images-page .gallery-container {
+    margin-top: 10px;
+  }
+
+  body.images-page .gallery {
+    margin-top: 10px;
+  }
+
+  body.images-page .gallery img {
+    width: auto;
+    max-width: 150px;
+    height: auto;
+    margin: 5px;
+    border-width: 2px;
+  }
+
+  body.images-page .lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
   }
 }
