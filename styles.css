@@ -256,3 +256,180 @@ width: 100%;
 margin: 10px 0 20px 0;
 }
 }
+
+/* ==============================
+Images page
+============================== */
+
+/* Allow the image gallery page to grow vertically */
+.images-page {
+display: block;
+min-height: 100vh;
+height: auto;
+overflow-y: auto;
+overflow-x: hidden;
+background-color: #333333;
+}
+
+/* Gallery container */
+.images-page .container {
+width: 95%;
+min-height: auto;
+margin: 0 auto;
+padding-top: 20px;
+overflow: visible;
+align-items: center;
+}
+
+.images-page .gallery-container {
+width: 100%;
+text-align: center;
+}
+
+/* ==============================
+Image Gallery
+============================== */
+
+.images-page .menu {
+margin: 20px 0;
+}
+
+.images-page .menu label {
+margin: 0 10px;
+padding: 10px 20px;
+background-color: #FF5000;
+color: white;
+text-decoration: none;
+cursor: pointer;
+border-radius: 5px;
+display: inline-block;
+}
+
+/* Hide the radio buttons */
+.images-page .menu input {
+display: none;
+}
+
+/* Gallery containers */
+.images-page .gallery-container {
+margin-top: 20px;
+}
+
+.images-page .gallery {
+display: none;
+margin-top: 20px;
+}
+
+.images-page .gallery img {
+max-width: 150px;
+height: auto;
+margin: 10px;
+border: 2px solid #FF5000;
+border-radius: 5px;
+cursor: pointer;
+}
+
+/* Selected menu item */
+.images-page input[type="radio"]:checked + label {
+color: #FFD700;
+background-color: #e65c00;
+}
+
+/* ==============================
+Lightbox
+============================== */
+
+.images-page .lightbox {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+z-index: 1000;
+justify-content: center;
+align-items: center;
+}
+
+.images-page .lightbox img {
+max-width: 90%;
+max-height: 80%;
+}
+
+.images-page .lightbox .nav-button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-size: 30px;
+color: white;
+background: rgba(0, 0, 0, 0.5);
+padding: 10px;
+cursor: pointer;
+border: none;
+}
+
+.images-page .lightbox .prev {
+left: 10px;
+}
+
+.images-page .lightbox .next {
+right: 10px;
+}
+
+/* Close button */
+.images-page .lightbox .close {
+position: absolute;
+top: 10px;
+right: 10px;
+color: white;
+font-size: 30px;
+cursor: pointer;
+}
+
+/* ==============================
+Images page on smartphones
+============================== */
+
+@media (max-width: 600px) {
+
+html:has(body.images-page) {
+height: auto;
+min-height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+body.images-page {
+height: auto;
+min-height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+body.images-page .container {
+width: 95%;
+min-height: auto;
+overflow: visible;
+padding-top: 10px;
+}
+
+body.images-page .gallery-container {
+width: 100%;
+}
+
+body.images-page .gallery img {
+max-width: 140px;
+height: auto;
+margin: 5px;
+}
+
+body.images-page .menu {
+text-align: center;
+}
+
+body.images-page .menu label {
+margin: 5px;
+padding: 8px 12px;
+}
+}
