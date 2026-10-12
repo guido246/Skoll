@@ -3,7 +3,6 @@
    GENERAL STYLING
    ========================================================= */
 
-/* Reset styling */
 body, html {
     margin: 0;
     padding: 0;
@@ -16,7 +15,7 @@ body, html {
     color: orange;
 }
 
-/* Ensure the page is always a square */
+/* Main square */
 .square {
     position: relative;
     width: 100vmin;
@@ -24,7 +23,6 @@ body, html {
     background-color: black;
     color: orange;
     display: block;
-    align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -41,7 +39,7 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Centered Logo */
+/* Centered logo */
 .logo {
     width: 100%;
     height: 100%;
@@ -57,7 +55,7 @@ body, html {
     object-fit: contain;
 }
 
-/* Corner Links Styling */
+/* Corner links */
 .corner-link {
     position: absolute;
     text-decoration: none;
@@ -69,7 +67,6 @@ body, html {
     transition: background-color 0.3s;
 }
 
-/* Positioning Links */
 .top-left {
     top: 10px;
     left: 10px;
@@ -96,10 +93,8 @@ body, html {
 
 .box {
     width: 95%;
-    padding: 0;
-    padding-bottom: 20px;
-    margin: 10px;
-    margin-bottom: 20px;
+    padding: 0 0 20px;
+    margin: 10px 10px 20px;
     background-color: black;
     color: #A88858;
     border: 1px solid #ccc;
@@ -120,7 +115,6 @@ th, td {
 }
 
 th {
-    border: 1px solid #000;
     border-color: #A08259;
     background-color: #333;
 }
@@ -249,7 +243,7 @@ a:hover {
 
     body.members-page .box {
         width: 100%;
-        margin: 10px 0 20px 0;
+        margin: 10px 0 20px;
     }
 }
 
@@ -483,7 +477,7 @@ body.events-page .event-card:hover {
 }
 
 /* Event image */
-.event-image-link {
+body.events-page .event-card .event-image-link {
     display: block;
     flex: 0 0 180px;
     align-self: flex-start;
@@ -492,6 +486,7 @@ body.events-page .event-card:hover {
 }
 
 body.events-page .event-card img {
+    display: block;
     width: 160px;
     height: 110px;
     flex: 0 0 160px;
@@ -504,7 +499,7 @@ body.events-page .event-card img {
 }
 
 /* Event information */
-.event-info {
+body.events-page .event-info {
     flex: 1;
     min-width: 0;
     padding: 5px 0;
@@ -533,7 +528,7 @@ body.events-page .event-card p {
 }
 
 /* Year heading */
-.events-year {
+body.events-page .events-year {
     color: #000;
     background-color: #A88858;
     font-size: 1.2rem;
@@ -550,43 +545,50 @@ body.events-page .event-card p {
    ========================================================= */
 
 @media (max-width: 600px) {
-    .events-grid {
+    body.events-page .events-grid {
         grid-template-columns: 1fr;
     }
 
     body.events-page .event-card {
-        display: grid;
-        grid-template-columns: 85px minmax(0, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
         gap: 8px;
         padding: 8px;
     }
 
     /* Image on the left */
     body.events-page .event-card .event-image-link {
-        grid-column: 1;
-        grid-row: 1;
+        flex: 0 0 85px;
         width: 85px;
         padding: 2px;
+        box-sizing: border-box;
     }
 
     body.events-page .event-card img {
+        display: block;
         width: 81px;
         height: 65px;
         flex: none;
+        object-fit: contain;
+        padding: 2px;
+        box-sizing: border-box;
     }
 
-    /* Allow title and details to occupy grid cells */
+    /* Title and event details */
     body.events-page .event-info {
-        display: contents;
+        display: flex;
+        flex: 1 1 calc(100% - 105px);
+        flex-direction: column;
+        min-width: 0;
+        padding: 0;
+        gap: 4px;
     }
 
-    /* Title to the right of the image */
+    /* Title on the right of the image */
     body.events-page .event-card h2 {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: center;
         font-size: 1rem;
-        margin: 0;
+        margin: 0 0 4px;
         overflow-wrap: anywhere;
     }
 
@@ -596,11 +598,12 @@ body.events-page .event-card p {
         text-underline-offset: 3px;
     }
 
-    /* Date, location and distance below the image and title */
+    /* Date, location, distance and meeting point */
     body.events-page .event-card p {
-        grid-column: 1 / -1;
+        flex: 0 0 100%;
+        width: 100%;
         font-size: 0.85rem;
-        margin: 3px 0;
+        margin: 0;
         overflow-wrap: anywhere;
     }
 
