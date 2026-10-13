@@ -273,23 +273,38 @@ body.contact-page .contact-text {
         width: 100%;
         margin: 10px 0 20px;
         padding: 25px 12px;
+        text-align: center;
     }
 
     body.contact-page h1 {
         font-size: 1.5rem;
         margin: 35px 0 20px;
+        text-align: center;
     }
 
     body.contact-page p {
         font-size: 1rem;
+        text-align: center;
     }
 
     body.contact-page .contact-links {
-        gap: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 25px 0;
     }
 
     body.contact-page .contact-link {
-        padding: 9px 14px;
+        padding: 9px 12px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    body.contact-page .contact-text {
+        text-align: center;
     }
 }
 
