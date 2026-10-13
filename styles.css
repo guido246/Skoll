@@ -548,8 +548,8 @@ body.events-page .event-card p {
 body.events-page .events-year {
     color: black;
     background-color: #A88858;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 800;
     text-align: center;
     margin: 32px 0 18px;
     padding: 8px 12px;
