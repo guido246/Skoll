@@ -478,6 +478,11 @@ body.events-page .event-card {
     color: #A88858;
 }
 
+body.events-page .home-link {
+    top: 35px;
+    right: 20px;
+}
+
 body.events-page .event-card:hover {
     border-color: #D0AD70;
     background-color: #111;
@@ -626,6 +631,31 @@ body.events-page .events-year {
         font-size: 1.1rem;
         margin: 24px 0 14px;
     }
+	
+	body.events-page .home-link {
+		top: 12px;
+		right: 12px;
+	}	
 }
 
+
+/* Subtle HOME link */
+.corner-link.home-link {
+    font-size: 1rem;
+    padding: 6px 10px;
+    border: 1px solid #A88858;
+    background-color: black;
+}
+
+.corner-link.home-link:hover {
+    color: black;
+    background-color: #A88858;
+}
+
+@media (max-width: 600px) {
+    .corner-link.home-link {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+}
 
