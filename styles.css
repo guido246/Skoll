@@ -193,6 +193,107 @@ a:hover {
 }
 
 /* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+body.contact-page {
+    display: block;
+    min-height: 100vh;
+    height: auto;
+    background-color: #333333;
+    color: #A88858;
+    overflow-y: auto;
+}
+
+body.contact-page .container {
+    width: 80%;
+    min-height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    overflow: visible;
+    align-items: center;
+}
+
+body.contact-page .contact-box {
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px 25px;
+    border: 1px solid #A88858;
+    border-radius: 8px;
+    text-align: center;
+}
+
+body.contact-page h1 {
+    color: #A88858;
+    font-size: 2rem;
+    margin: 15px 0 25px;
+}
+
+body.contact-page p {
+    color: #A88858;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+body.contact-page .contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+body.contact-page .contact-link {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #A88858;
+    background-color: black;
+    border: 1px solid #A88858;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.contact-page .contact-link:hover {
+    background-color: #A88858;
+    color: black;
+}
+
+body.contact-page .contact-text {
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    body.contact-page .container {
+        width: 95%;
+        padding-top: 10px;
+    }
+
+    body.contact-page .contact-box {
+        width: 100%;
+        margin: 10px 0 20px;
+        padding: 25px 12px;
+    }
+
+    body.contact-page h1 {
+        font-size: 1.5rem;
+        margin: 35px 0 20px;
+    }
+
+    body.contact-page p {
+        font-size: 1rem;
+    }
+
+    body.contact-page .contact-links {
+        gap: 10px;
+    }
+
+    body.contact-page .contact-link {
+        padding: 9px 14px;
+    }
+}
+
+/* =========================================================
    MEMBERS PAGE
    ========================================================= */
 
