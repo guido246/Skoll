@@ -436,9 +436,11 @@ body.images-page .lightbox .close {
     }
 
 	body.images-page .images-home-link {
+		position: absolute;
 		top: 32px;
 		right: 12px;
-	}
+		left: auto;
+    }
 
     body.images-page .menu {
         margin: 20px 0;
