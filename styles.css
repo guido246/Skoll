@@ -218,6 +218,12 @@ a:hover {
     box-sizing: border-box;
 }
 
+/* HOME link on Members page */
+body.members-page .members-home-link {
+    top: 35px;
+    right: 4%;
+}
+
 /* Members page on smartphones */
 @media (max-width: 600px) {
     html:has(body.members-page) {
@@ -245,6 +251,11 @@ a:hover {
         width: 100%;
         margin: 10px 0 20px;
     }
+	
+	body.members-page .members-home-link {
+		top: 32px;
+		right: 12px;
+	}	
 }
 
 /* =========================================================
