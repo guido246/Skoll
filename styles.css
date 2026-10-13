@@ -621,6 +621,8 @@ body.events-page .events-year {
     }
 
     body.events-page .events-year {
+		background-color: #A88858 !important;
+        color: black !important;
         font-size: 1.1rem;
         margin: 24px 0 14px;
     }
