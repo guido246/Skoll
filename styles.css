@@ -229,6 +229,18 @@ body.contact-page h1 {
     margin: 15px 0 25px;
 }
 
+body.contact-page h2 {
+    color: #A88858;
+    font-size: 1.3rem;
+    margin: 30px 0 12px;
+    letter-spacing: 1px;
+}
+
+body.contact-page .contact-symbols {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
 body.contact-page p {
     color: #A88858;
     font-size: 1.1rem;
@@ -281,6 +293,11 @@ body.contact-page .contact-text {
         margin: 35px 0 20px;
         text-align: center;
     }
+
+	body.contact-page h2 {
+		font-size: 1.1rem;
+		margin: 24px 0 10px;
+	}
 
     body.contact-page p {
         font-size: 1rem;
