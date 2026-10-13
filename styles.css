@@ -478,9 +478,14 @@ body.events-page .event-card {
     color: #A88858;
 }
 
+body.events-page .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
 body.events-page .home-link {
     top: 35px;
-    right: 20px;
+    right: 4%;
 }
 
 body.events-page .event-card:hover {
