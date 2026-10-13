@@ -286,6 +286,12 @@ body.images-page .gallery-container-page {
     overflow: visible;
 }
 
+/* HOME link on Images page */
+body.images-page .images-home-link {
+    top: 20px;
+    right: 20px;
+}
+
 body.images-page h1 {
     margin-top: 0.67em;
     margin-bottom: 0.67em;
@@ -428,6 +434,11 @@ body.images-page .lightbox .close {
         box-sizing: border-box;
         overflow: visible;
     }
+
+	body.images-page .images-home-link {
+		top: 32px;
+		right: 12px;
+	}
 
     body.images-page .menu {
         margin: 20px 0;
