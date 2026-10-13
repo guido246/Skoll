@@ -590,3 +590,15 @@ body.images-page .lightbox .close {
         margin: 24px 0 14px;
     }
 }
+
+
+/* EVENTS - year heading */
+
+.events-year {
+    background: #d4a017;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    margin: 25px 0 15px;
+    border-radius: 5px;
+}
