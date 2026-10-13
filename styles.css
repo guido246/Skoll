@@ -453,14 +453,13 @@ body.images-page .lightbox .close {
 }
 
 
+
 /* =========================================================
    EVENTS
    ========================================================= */
 
 body.events-page .event-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: block;
     margin: 0 0 20px;
     padding: 12px;
     background-color: black;
@@ -475,7 +474,7 @@ body.events-page .event-card:hover {
     background-color: #111;
 }
 
-/* Image and title */
+/* Image and title side by side */
 body.events-page .event-header {
     display: flex;
     align-items: flex-start;
@@ -501,7 +500,7 @@ body.events-page .event-card img {
     box-sizing: border-box;
 }
 
-/* Event title */
+/* Title */
 body.events-page .event-card h2 {
     flex: 1;
     min-width: 0;
@@ -522,16 +521,17 @@ body.events-page .event-card h2 a:hover {
     cursor: pointer;
 }
 
-/* Details use the full card width */
+/* Details below the complete header */
 body.events-page .event-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 0;
+    display: block;
+    width: 100%;
+    clear: both;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 
 body.events-page .event-card p {
-    margin: 0;
+    margin: 5px 0;
     font-size: 0.95rem;
     overflow-wrap: anywhere;
 }
@@ -559,13 +559,13 @@ body.events-page .events-year {
     }
 
     body.events-page .event-card {
-        gap: 8px;
         padding: 8px;
     }
 
     body.events-page .event-header {
-        gap: 8px;
+        display: flex;
         align-items: center;
+        gap: 8px;
     }
 
     body.events-page .event-card .event-image-link {
@@ -592,12 +592,14 @@ body.events-page .events-year {
     }
 
     body.events-page .event-info {
+        display: block;
         width: 100%;
-        gap: 4px;
+        padding-top: 8px;
     }
 
     body.events-page .event-card p {
         font-size: 0.85rem;
+        margin: 4px 0;
     }
 
     body.events-page .events-year {
