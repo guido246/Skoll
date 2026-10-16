@@ -568,6 +568,63 @@ body.images-page .lightbox .close {
     cursor: pointer;
 }
 
+
+/* Gallery image loading indicator */
+.gallery-image-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    min-height: 100px;
+    background-color: #080808;
+    vertical-align: top;
+}
+
+.gallery-image-wrap img {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.gallery-image-wrap.is-loaded img {
+    opacity: 1;
+}
+
+.gallery-image-wrap.is-loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 28px;
+    margin: -16px 0 0 -16px;
+    border: 3px solid #333;
+    border-top-color: #A88858;
+    border-radius: 50%;
+    animation: gallery-spin 0.8s linear infinite;
+    pointer-events: none;
+}
+
+.gallery-image-wrap.is-error::after {
+    content: "Foto kon niet laden";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    color: #A88858;
+    font-size: 13px;
+    text-align: center;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+@keyframes gallery-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 /* =========================================================
    IMAGE GALLERY - MOBILE
    ========================================================= */
